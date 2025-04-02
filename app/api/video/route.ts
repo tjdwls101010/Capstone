@@ -138,8 +138,8 @@ export async function GET() {
     // 비디오 파일 정보 수집
     const videoFiles = await Promise.all(
       files
-        .filter(file => ['.mp4', '.avi', '.mov', '.mkv'].some(ext => file.toLowerCase().endsWith(ext)))
-        .map(async (file) => {
+        .filter((file: string) => ['.mp4', '.avi', '.mov', '.mkv'].some(ext => file.toLowerCase().endsWith(ext)))
+        .map(async (file: string) => {
           const filePath = path.join(uploadDir, file);
           const stats = await stat(filePath);
           

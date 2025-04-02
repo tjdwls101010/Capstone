@@ -287,7 +287,6 @@ export default function AboutPage() {
     {
       id: "6",
       date: "6단계",
-      date: "6단계",
       title: "데이터 저장 및 관리 시스템",
       description: "인식된 컨테이너 번호와 시간 정보를 엑셀 파일에 기록하여 물류 관리자가 쉽게 확인하고 관리할 수 있는 시스템을 구축했습니다.",
       icon: <Database className="h-6 w-6 text-amber-500" />,

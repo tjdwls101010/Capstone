@@ -43,9 +43,6 @@ const config: Config = {
           foreground: 'hsl(var(--card-foreground))',
         },
       },
-      animation: {
-        'ping-slow': 'ping 2s cubic-bezier(0, 0, 0.2, 1) infinite',
-      },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
