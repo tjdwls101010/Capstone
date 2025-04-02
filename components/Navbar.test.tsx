@@ -21,18 +21,21 @@ describe('Navbar', () => {
     
     const homeLink = screen.getByText('홈');
     const aboutLink = screen.getByText('프로젝트 개요');
+    const videoLink = screen.getByText('비디오처리');
     
     expect(homeLink).toBeInTheDocument();
     expect(aboutLink).toBeInTheDocument();
+    expect(videoLink).toBeInTheDocument();
     
     expect(homeLink.closest('a')).toHaveAttribute('href', '/');
     expect(aboutLink.closest('a')).toHaveAttribute('href', '/about');
+    expect(videoLink.closest('a')).toHaveAttribute('href', '/video');
   });
 
   it('renders the logo', () => {
     render(<Navbar />);
     
-    const logo = screen.getByAltText('NGL Logo');
+    const logo = screen.getByAltText('WandaVision Logo');
     expect(logo).toBeInTheDocument();
     expect(logo.closest('a')).toHaveAttribute('href', '/');
   });

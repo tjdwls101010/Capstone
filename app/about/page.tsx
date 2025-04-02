@@ -62,7 +62,7 @@ const ProjectBanner = ({
             className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: `url(${backgroundImage})` }}
           >
-            <div className="absolute inset-0 bg-black/60" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/80 to-background/95" />
           </div>
         )}
       </div>
@@ -77,7 +77,7 @@ const ProjectBanner = ({
             >
               <Badge
                 variant={badge.variant || "default"}
-                className="mb-4 px-3 py-1 text-xs"
+                className="mb-4 px-3 py-1 text-xs bg-primary/20 text-primary border-primary/30"
               >
                 {badge.text}
               </Badge>
@@ -90,7 +90,7 @@ const ProjectBanner = ({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1, ease }}
           >
-            {title}
+            {title} <span className="text-primary">프로젝트</span>
           </motion.h1>
 
           <motion.p
@@ -118,7 +118,7 @@ interface ProjectGoalProps {
 const ProjectGoal = ({ icon, title, description, className }: ProjectGoalProps) => {
   return (
     <Card
-      className={`group relative overflow-hidden transition-all duration-300 hover:shadow-md ${className}`}
+      className={`group relative overflow-hidden transition-all duration-300 hover:shadow-md border-border hover:border-primary/30 ${className}`}
     >
       <CardContent className="p-6">
         <div className="mb-4 text-primary">
@@ -131,7 +131,7 @@ const ProjectGoal = ({ icon, title, description, className }: ProjectGoalProps) 
         </h3>
         <p className="text-muted-foreground">{description}</p>
       </CardContent>
-      <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+      <div className="absolute inset-0 border border-primary/20 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
     </Card>
   );
 };
@@ -169,7 +169,7 @@ const Timeline = ({ items, className }: ProjectTimelineProps) => {
               {/* Date and Icon */}
               <div className="flex items-start mb-4 md:mb-0">
                 <div className="flex flex-col items-center">
-                  <div className="h-12 w-12 rounded-full bg-muted flex items-center justify-center z-10 border border-border">
+                  <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center z-10 border border-border text-primary">
                     {item.icon}
                   </div>
                   <span className="text-sm font-medium text-muted-foreground mt-2 md:hidden">
@@ -223,22 +223,22 @@ export default function AboutPage() {
   // Define project goals
   const projectGoals = [
     {
-      icon: <Video className="h-6 w-6" />,
+      icon: <Video className="h-6 w-6 text-primary" />,
       title: "실시간 컨테이너 트럭 감지",
       description: "CCTV 영상에서 실시간으로 컨테이너 트럭을 감지하여 출입 상황을 모니터링합니다.",
     },
     {
-      icon: <BookOpen className="h-6 w-6" />,
+      icon: <BookOpen className="h-6 w-6 text-primary" />,
       title: "컨테이너 번호 인식 및 기록",
       description: "감지된 컨테이너의 번호를 인식하고 정확하게 기록합니다.",
     },
     {
-      icon: <Clock className="h-6 w-6" />,
+      icon: <Clock className="h-6 w-6 text-primary" />,
       title: "시간별 출입 내역 관리",
       description: "시간별로 컨테이너 출입 내역을 자동으로 관리하여 효율적인 모니터링을 제공합니다.",
     },
     {
-      icon: <MonitorPlay className="h-6 w-6" />,
+      icon: <MonitorPlay className="h-6 w-6 text-primary" />,
       title: "직관적인 웹 인터페이스",
       description: "웹 인터페이스를 통해 직관적인 모니터링 시스템을 구축하여 사용자 경험을 향상시킵니다.",
     },
@@ -286,6 +286,7 @@ export default function AboutPage() {
     },
     {
       id: "6",
+      date: "6단계",
       date: "6단계",
       title: "데이터 저장 및 관리 시스템",
       description: "인식된 컨테이너 번호와 시간 정보를 엑셀 파일에 기록하여 물류 관리자가 쉽게 확인하고 관리할 수 있는 시스템을 구축했습니다.",
@@ -341,126 +342,129 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Hero Banner */}
-      <ProjectBanner
-        backgroundImage="/images/NGL_width.png"
-        title="WandaVision YOLO 프로젝트"
-        description="CCTV 영상을 활용하여 물류 창고나 항만 출입구에서 컨테이너 트럭의 출입을 자동으로 감지하고, 컨테이너 번호를 인식하여 기록하는 시스템"
-        badge={{
-          text: "AI 기반 물류 관리 솔루션",
-          variant: "secondary",
-        }}
-        className="mb-12"
-      />
+    <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-background">
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.05] via-transparent to-accent/[0.05] blur-3xl" />
+      <div className="relative z-10">
+        {/* Hero Banner */}
+        <ProjectBanner
+          backgroundImage="/images/NGL_width.png"
+          title="WandaVision YOLO 프로젝트"
+          description="CCTV 영상을 활용하여 물류 창고나 항만 출입구에서 컨테이너 트럭의 출입을 자동으로 감지하고, 컨테이너 번호를 인식하여 기록하는 시스템"
+          badge={{
+            text: "AI 기반 물류 관리 솔루션",
+            variant: "secondary",
+          }}
+          className="mb-12"
+        />
 
-      {/* Company Introduction */}
-      <section className="container mx-auto px-4 py-12">
-        <div className="flex flex-col md:flex-row items-center gap-8">
-          <div className="w-full md:w-1/2">
-            <h2 className="text-3xl font-bold mb-4">NGL Transportation 기업 소개</h2>
-            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              NGL Transportation은 2006년부터 운영되어온 종합 물류 서비스 제공업체입니다. 현재 미국 전역에서 화물 운송, 창고 관리, 트럭 운송, 특수 프로젝트 서비스 등을 제공하고 있습니다.
-            </p>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              캘리포니아, 애리조나, 텍사스, 조지아주에 설비를 갖추고 있으며, 300대 이상의 트럭과 1000대 이상의 섀시를 보유하고 있습니다. 또한 한국 서울에도 아시아 본부를 두고 있어 글로벌 기업들의 물류 요구를 충족시키고 있습니다.
-            </p>
-          </div>
-          <div className="w-full md:w-1/2 flex justify-center">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-              className="rounded-lg overflow-hidden shadow-xl"
-            >
-              <Image 
-                src="/images/NGL_width.png" 
-                alt="NGL Logo" 
-                width={500} 
-                height={300} 
-                className="object-contain"
-              />
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Project Goals */}
-      <section className="bg-background py-16">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-4">프로젝트 목표</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              WandaVision YOLO 프로젝트의 핵심 목표는 물류 관리 효율성을 높이고, 인력에 의존하던 컨테이너 출입 기록을 자동화하여 인적 오류를 줄이는 것입니다.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {projectGoals.map((goal, index) => (
+        {/* Company Introduction */}
+        <section className="container mx-auto px-4 py-12">
+          <div className="flex flex-col md:flex-row items-center gap-8">
+            <div className="w-full md:w-1/2">
+              <h2 className="text-3xl font-bold mb-4">NGL Transportation 기업 소개</h2>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                NGL Transportation은 2006년부터 운영되어온 종합 물류 서비스 제공업체입니다. 현재 미국 전역에서 화물 운송, 창고 관리, 트럭 운송, 특수 프로젝트 서비스 등을 제공하고 있습니다.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                캘리포니아, 애리조나, 텍사스, 조지아주에 설비를 갖추고 있으며, 300대 이상의 트럭과 1000대 이상의 섀시를 보유하고 있습니다. 또한 한국 서울에도 아시아 본부를 두고 있어 글로벌 기업들의 물류 요구를 충족시키고 있습니다.
+              </p>
+            </div>
+            <div className="w-full md:w-1/2 flex justify-center">
               <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <ProjectGoal {...goal} />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Project Timeline */}
-      <section className="container mx-auto py-16">
-        <h2 className="text-3xl font-bold text-center mb-12">프로젝트 진행 과정</h2>
-        <Timeline items={timelineItems} />
-      </section>
-
-      {/* Image Gallery */}
-      <section className="bg-background py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">프로젝트 갤러리</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {galleryImages.map((image, index) => (
-              <motion.div 
-                key={image.id}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
-                className="group relative overflow-hidden rounded-lg bg-background border border-border shadow-md"
+                transition={{ duration: 0.5 }}
+                className="rounded-lg overflow-hidden shadow-xl"
               >
-                <div className="aspect-square relative overflow-hidden rounded-t-lg">
-                  <Image 
-                    src={image.src}
-                    alt={image.alt || image.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover transition-all duration-300 ease-in-out group-hover:scale-105"
-                  />
-                </div>
-                <div className="p-4">
-                  <h3 className="text-lg font-medium">{image.title}</h3>
-                </div>
+                <Image 
+                  src="/images/NGL_width.png" 
+                  alt="NGL Logo" 
+                  width={500} 
+                  height={300} 
+                  className="object-contain"
+                />
               </motion.div>
-            ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Call to Action */}
-      <section className="container mx-auto px-4 py-16">
-        <div className="bg-primary/5 border border-primary/20 rounded-lg p-8 text-center">
-          <h2 className="text-3xl font-bold mb-4">WandaVision YOLO 모니터링 시스템 체험하기</h2>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            물류 창고나 항만 출입구에서 컨테이너 트럭의 출입을 자동으로 감지하고, 실시간으로 모니터링 하는 시스템을 체험해보세요.
-          </p>
-          <Link href="/">
-            <Button size="lg" className="gap-2">
-              메인 화면으로 이동
-              <ArrowRight className="h-4 w-4" />
-            </Button>
-          </Link>
-        </div>
-      </section>
+        {/* Project Goals */}
+        <section className="bg-background py-16">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-foreground mb-4">프로젝트 목표</h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                WandaVision YOLO 프로젝트의 핵심 목표는 물류 관리 효율성을 높이고, 인력에 의존하던 컨테이너 출입 기록을 자동화하여 인적 오류를 줄이는 것입니다.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {projectGoals.map((goal, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <ProjectGoal {...goal} />
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Project Timeline */}
+        <section className="container mx-auto py-16">
+          <h2 className="text-3xl font-bold text-center mb-12">프로젝트 진행 과정</h2>
+          <Timeline items={timelineItems} />
+        </section>
+
+        {/* Image Gallery */}
+        <section className="bg-background py-16">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold text-center mb-12">프로젝트 갤러리</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {galleryImages.map((image, index) => (
+                <motion.div 
+                  key={image.id}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.3, delay: index * 0.1 }}
+                  className="group relative overflow-hidden rounded-lg bg-background border border-border shadow-md"
+                >
+                  <div className="aspect-square relative overflow-hidden rounded-t-lg">
+                    <Image 
+                      src={image.src}
+                      alt={image.alt || image.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover transition-all duration-300 ease-in-out group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h3 className="text-lg font-medium">{image.title}</h3>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Call to Action */}
+        <section className="container mx-auto px-4 py-16">
+          <div className="bg-primary/5 border border-primary/20 rounded-lg p-8 text-center">
+            <h2 className="text-3xl font-bold mb-4">WandaVision YOLO 모니터링 시스템 체험하기</h2>
+            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+              물류 창고나 항만 출입구에서 컨테이너 트럭의 출입을 자동으로 감지하고, 실시간으로 모니터링 하는 시스템을 체험해보세요.
+            </p>
+            <Link href="/">
+              <Button size="lg" className="gap-2">
+                메인 화면으로 이동
+                <ArrowRight className="h-4 w-4" />
+              </Button>
+            </Link>
+          </div>
+        </section>
+      </div>
     </div>
   );
 } 
