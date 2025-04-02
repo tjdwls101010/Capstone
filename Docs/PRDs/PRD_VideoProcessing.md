@@ -194,5 +194,22 @@ async def process_video_stream(video_source, websocket: WebSocket):
 
 ## 7. 관련 코드 및 리소스
 
-* **모델 파일:** `WandaVisionYOLO.pt`
-* **참조 코드:** `object_detection.py`의 `ContainerCapture` 클래스 
+* **모델 파일:** `WandaVisionYOLO.pt` (public/models 디렉토리에 위치)
+* **참조 코드:** 
+  * `app/api/video/process_video.py` - 비디오 파일을 처리하고 컨테이너를 감지하는 스크립트
+  * `app/api/video/route.ts` - 비디오 업로드 및 처리를 위한 API 엔드포인트
+  * `components/dashboard/VideoUpload/index.tsx` - 비디오 업로드 UI 컴포넌트
+  * `components/dashboard/Dashboard/index.tsx` - 대시보드 메인 컴포넌트
+
+## 8. 구현 현황
+
+* **구현 완료:**
+  * 비디오 파일 업로드 및 처리 API
+  * 비디오 업로드 UI 인터페이스
+  * 컨테이너 감지 및 추적 로직
+  * 최적 시점 캡처 기능
+
+* **구현 예정:**
+  * 실시간 WebSocket 스트리밍 기능
+  * RTSP/RTMP 스트림 지원
+  * 캡처된 이미지에서 컨테이너 번호 인식 

@@ -1,9 +1,11 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import VideoPlayer from '../VideoPlayer';
 import LogTable from '../LogTable';
 import StatusIndicator from '../StatusIndicator';
+import VideoUpload from '../VideoUpload';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 interface DashboardProps {
   videoSocketUrl?: string;
@@ -14,6 +16,12 @@ const Dashboard: React.FC<DashboardProps> = ({
   videoSocketUrl = 'ws://localhost:8000/ws/video',
   logsSocketUrl = 'ws://localhost:8000/ws/logs'
 }) => {
+  const [uploadedVideoId, setUploadedVideoId] = useState<string | null>(null);
+  
+  const handleUploadSuccess = (videoId: string) => {
+    setUploadedVideoId(videoId);
+  };
+  
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
       <header className="flex justify-between items-center px-6 py-4 border-b border-border">
@@ -23,7 +31,24 @@ const Dashboard: React.FC<DashboardProps> = ({
       
       <main className="flex-1 p-6 flex flex-col lg:flex-row gap-6">
         <div className="w-full lg:w-2/3">
-          <VideoPlayer websocketUrl={videoSocketUrl} />
+          <Tabs defaultValue="stream" className="w-full">
+            <TabsList className="w-full grid grid-cols-2">
+              <TabsTrigger value="stream">실시간 영상</TabsTrigger>
+              <TabsTrigger value="upload">비디오 업로드</TabsTrigger>
+            </TabsList>
+            <TabsContent value="stream" className="mt-4">
+              <VideoPlayer websocketUrl={videoSocketUrl} />
+            </TabsContent>
+            <TabsContent value="upload" className="mt-4">
+              <VideoUpload onUploadSuccess={handleUploadSuccess} />
+              {uploadedVideoId && (
+                <div className="mt-4 p-4 bg-muted rounded-md">
+                  <h3 className="font-medium mb-2">최근 업로드된 비디오: {uploadedVideoId}</h3>
+                  <p className="text-sm text-muted-foreground">비디오가 백그라운드에서 처리 중입니다. 처리가 완료되면 로그 테이블에 결과가 표시됩니다.</p>
+                </div>
+              )}
+            </TabsContent>
+          </Tabs>
         </div>
         
         <div className="w-full lg:w-1/3">
