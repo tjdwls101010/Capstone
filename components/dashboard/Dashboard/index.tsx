@@ -15,9 +15,9 @@ const Dashboard: React.FC<DashboardProps> = ({
   logsSocketUrl = 'ws://localhost:8000/ws/logs'
 }) => {
   return (
-    <div className="min-h-screen flex flex-col">
-      <header className="flex justify-between items-center px-6 py-4 border-b">
-        <h1 className="text-2xl font-bold">주차장 컨테이너 감지 및 기록 시스템</h1>
+    <div className="min-h-screen flex flex-col bg-background text-foreground">
+      <header className="flex justify-between items-center px-6 py-4 border-b border-border">
+        <h1 className="text-2xl font-bold text-foreground">주차장 컨테이너 감지 및 기록 시스템</h1>
         <StatusIndicator websocketUrl={videoSocketUrl} />
       </header>
       
@@ -31,7 +31,7 @@ const Dashboard: React.FC<DashboardProps> = ({
         </div>
       </main>
       
-      <footer className="py-4 px-6 border-t text-center text-sm text-gray-500">
+      <footer className="py-4 px-6 border-t border-border text-center text-sm text-muted-foreground">
         <p>© 2023 컨테이너 감지 시스템</p>
       </footer>
     </div>

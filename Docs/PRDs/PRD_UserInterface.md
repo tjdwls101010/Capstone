@@ -89,24 +89,24 @@
 ```css
 :root {
   /* 기본 색상 */
-  --primary-color: #3498db;      /* 주요 강조 색상 */
-  --secondary-color: #2ecc71;    /* 보조 강조 색상 */
-  --warning-color: #f39c12;      /* 경고 색상 */
-  --danger-color: #e74c3c;       /* 오류/위험 색상 */
+  --primary-color: #a3ff12;      /* 형광 초록 강조 색상 */
+  --secondary-color: #c8ff32;    /* 보조 강조 색상 */
+  --warning-color: #e2ff41;      /* 경고 색상 */
+  --danger-color: #ff3b5c;       /* 오류/위험 색상 */
   
   /* 중립 색상 */
-  --background-color: #f8f9fa;   /* 배경색 */
-  --text-color: #343a40;         /* 기본 텍스트 색상 */
-  --border-color: #dee2e6;       /* 테두리 색상 */
+  --background-color: #262626;   /* 배경색 - 진한 회색 */
+  --text-color: #f0f0f0;         /* 기본 텍스트 색상 - 밝은 회색 */
+  --border-color: #5a5a5a;       /* 테두리 색상 - 중간 회색 */
   
   /* 상태 표시 색상 */
-  --detected-color: #2ecc71;     /* 감지됨 (초록) */
-  --processing-color: #3498db;   /* 처리 중 (파랑) */
-  --captured-color: #e74c3c;     /* 캡처됨 (빨강) */
+  --detected-color: #a3ff12;     /* 감지됨 (형광 초록) */
+  --processing-color: #41e2bb;   /* 처리 중 (청록) */
+  --captured-color: #ff3b5c;     /* 캡처됨 (빨강) */
   
-  /* 다크 모드 (선택사항) */
-  --dark-background: #212529;    /* 다크 모드 배경 */
-  --dark-text: #f8f9fa;          /* 다크 모드 텍스트 */
+  /* 다크 모드 */
+  --dark-background: #171717;    /* 다크 모드 배경 - 매우 진한 회색 */
+  --dark-text: #f0f0f0;          /* 다크 모드 텍스트 - 밝은 회색 */
 }
 ```
 

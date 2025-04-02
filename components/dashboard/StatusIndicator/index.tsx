@@ -135,58 +135,58 @@ const StatusIndicator: React.FC<StatusIndicatorProps> = ({
     switch (status) {
       case 'connecting':
         return {
-          bg: 'bg-yellow-500',
-          text: 'text-yellow-800',
-          ring: 'ring-yellow-500',
+          bg: 'bg-primary/70',
+          text: 'text-foreground',
+          ring: 'ring-primary/70',
           pulseEffect: true
         };
       case 'idle':
         return {
-          bg: 'bg-gray-500',
-          text: 'text-gray-800',
-          ring: 'ring-gray-500',
+          bg: 'bg-secondary',
+          text: 'text-foreground',
+          ring: 'ring-secondary',
           pulseEffect: false
         };
       case 'processing':
         return {
-          bg: 'bg-blue-500',
-          text: 'text-blue-800',
-          ring: 'ring-blue-500',
+          bg: 'bg-accent',
+          text: 'text-foreground',
+          ring: 'ring-accent',
           pulseEffect: true
         };
       case 'container_detected':
         return {
-          bg: 'bg-green-500',
-          text: 'text-green-800',
-          ring: 'ring-green-500',
+          bg: 'bg-primary',
+          text: 'text-foreground',
+          ring: 'ring-primary',
           pulseEffect: true
         };
       case 'recognizing':
         return {
-          bg: 'bg-purple-500',
-          text: 'text-purple-800',
-          ring: 'ring-purple-500',
+          bg: 'bg-[#41e2bb]',
+          text: 'text-foreground',
+          ring: 'ring-[#41e2bb]',
           pulseEffect: true
         };
       case 'logged':
         return {
-          bg: 'bg-green-600',
-          text: 'text-green-800',
-          ring: 'ring-green-600',
+          bg: 'bg-primary',
+          text: 'text-foreground',
+          ring: 'ring-primary',
           pulseEffect: false
         };
       case 'error':
         return {
-          bg: 'bg-red-500',
-          text: 'text-red-800',
-          ring: 'ring-red-500',
+          bg: 'bg-destructive',
+          text: 'text-foreground',
+          ring: 'ring-destructive',
           pulseEffect: true
         };
       default:
         return {
-          bg: 'bg-gray-500',
-          text: 'text-gray-800',
-          ring: 'ring-gray-500',
+          bg: 'bg-muted',
+          text: 'text-foreground',
+          ring: 'ring-muted',
           pulseEffect: false
         };
     }

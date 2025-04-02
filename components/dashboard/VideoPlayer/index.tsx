@@ -43,11 +43,11 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
       canvas.height = 480;
       
       // 검은 배경으로 채우기
-      ctx.fillStyle = '#000';
+      ctx.fillStyle = '#262626';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       
       // 미리보기 텍스트 추가
-      ctx.fillStyle = '#fff';
+      ctx.fillStyle = '#f0f0f0';
       ctx.font = '24px Arial';
       ctx.fillText('비디오 스트림 대기 중...', canvas.width / 2 - 140, canvas.height / 2);
       
@@ -139,9 +139,9 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
       const [x1, y1, x2, y2] = info.bbox;
       
       // 상태에 따른 색상 설정
-      let color = 'rgba(46, 204, 113, 0.8)'; // 기본 감지 색상 (초록)
+      let color = 'rgba(163, 255, 18, 0.8)'; // 기본 감지 색상 (형광 초록)
       if (info.captured) {
-        color = 'rgba(231, 76, 60, 0.8)'; // 캡처 완료 (빨강)
+        color = 'rgba(255, 59, 92, 0.8)'; // 캡처 완료 (빨강)
       }
       
       // 바운딩 박스 그리기
@@ -167,13 +167,13 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
         <CardTitle>실시간 영상</CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="relative w-full h-auto bg-black rounded-md overflow-hidden">
+        <div className="relative w-full h-auto bg-background rounded-md overflow-hidden">
           <canvas 
             ref={canvasRef} 
             className="w-full h-auto object-contain"
             style={{ width, height }}
           />
-          <div className="absolute bottom-0 left-0 right-0 p-2 bg-gradient-to-t from-black/70 to-transparent text-white text-sm">
+          <div className="absolute bottom-0 left-0 right-0 p-2 bg-gradient-to-t from-black/70 to-transparent text-foreground text-sm">
             {connected ? '연결됨' : '연결 대기 중...'}
           </div>
         </div>

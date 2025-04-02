@@ -45,71 +45,71 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --background: #262626;
+  --foreground: #f0f0f0;
+  --card: #323232;
+  --card-foreground: #f0f0f0;
+  --popover: #323232;
+  --popover-foreground: #f0f0f0;
+  --primary: #a3ff12;
+  --primary-foreground: #171717;
+  --secondary: #424242;
+  --secondary-foreground: #e1ff75;
+  --muted: #3e3e3e;
+  --muted-foreground: #c0c0c0;
+  --accent: #c8ff32;
+  --accent-foreground: #171717;
+  --destructive: #ff3b5c;
+  --border: #5a5a5a;
+  --input: #3e3e3e;
+  --ring: #a3ff12;
+  --chart-1: #a3ff12;
+  --chart-2: #41e2bb;
+  --chart-3: #5b82ff;
+  --chart-4: #e2ff41;
+  --chart-5: #ff5bae;
+  --sidebar: #1f1f1f;
+  --sidebar-foreground: #f0f0f0;
+  --sidebar-primary: #a3ff12;
+  --sidebar-primary-foreground: #171717;
+  --sidebar-accent: #323232;
+  --sidebar-accent-foreground: #e1ff75;
+  --sidebar-border: #5a5a5a;
+  --sidebar-ring: #a3ff12;
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --background: #171717;
+  --foreground: #f0f0f0;
+  --card: #262626;
+  --card-foreground: #f0f0f0;
+  --popover: #262626;
+  --popover-foreground: #f0f0f0;
+  --primary: #c8ff32;
+  --primary-foreground: #171717;
+  --secondary: #323232;
+  --secondary-foreground: #e1ff75;
+  --muted: #323232;
+  --muted-foreground: #b0b0b0;
+  --accent: #a3ff12;
+  --accent-foreground: #171717;
+  --destructive: #ff3b5c;
+  --border: #424242;
+  --input: #323232;
+  --ring: #a3ff12;
+  --chart-1: #a3ff12;
+  --chart-2: #41e2bb;
+  --chart-3: #5b82ff;
+  --chart-4: #e2ff41;
+  --chart-5: #ff5bae;
+  --sidebar: #171717;
+  --sidebar-foreground: #f0f0f0;
+  --sidebar-primary: #a3ff12;
+  --sidebar-primary-foreground: #171717;
+  --sidebar-accent: #323232;
+  --sidebar-accent-foreground: #e1ff75;
+  --sidebar-border: #424242;
+  --sidebar-ring: #a3ff12;
 }
 
 @layer base {
@@ -127,69 +127,65 @@
 
 @layer base {
   :root {
-    /* 기본 색상 */
-    --primary-color: #3498db;      /* 주요 강조 색상 */
-    --secondary-color: #2ecc71;    /* 보조 강조 색상 */
-    --warning-color: #f39c12;      /* 경고 색상 */
-    --danger-color: #e74c3c;       /* 오류/위험 색상 */
-    
-    /* 중립 색상 */
-    --background-color: #f8f9fa;   /* 배경색 */
-    --text-color: #343a40;         /* 기본 텍스트 색상 */
-    --border-color: #dee2e6;       /* 테두리 색상 */
-    
-    /* 상태 표시 색상 */
-    --detected-color: #2ecc71;     /* 감지됨 (초록) */
-    --processing-color: #3498db;   /* 처리 중 (파랑) */
-    --captured-color: #e74c3c;     /* 캡처됨 (빨강) */
-    
-    /* shadcn 변수 */
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 224 71.4% 4.1%;
-    --background: 0 0% 100%;
-    --foreground: 224 71.4% 4.1%;
-    --primary: 220.9 39.3% 11%;
-    --primary-foreground: 210 20% 98%;
-    --secondary: 220 14.3% 95.9%;
-    --secondary-foreground: 220.9 39.3% 11%;
-    --muted: 220 14.3% 95.9%;
-    --muted-foreground: 220 8.9% 46.1%;
-    --accent: 220 14.3% 95.9%;
-    --accent-foreground: 220.9 39.3% 11%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 20% 98%;
-    --card: 0 0% 100%;
-    --card-foreground: 224 71.4% 4.1%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 224 71.4% 4.1%;
+    --background: 0 0% 15%;
+    --foreground: 0 0% 94%;
+
+    --card: 0 0% 20%;
+    --card-foreground: 0 0% 94%;
+ 
+    --popover: 0 0% 20%;
+    --popover-foreground: 0 0% 94%;
+ 
+    --primary: 84 100% 54%;
+    --primary-foreground: 0 0% 9%;
+ 
+    --secondary: 0 0% 26%;
+    --secondary-foreground: 69 100% 73%;
+ 
+    --muted: 0 0% 24%;
+    --muted-foreground: 0 0% 76%;
+ 
+    --accent: 78 100% 60%;
+    --accent-foreground: 0 0% 9%;
+ 
+    --destructive: 347 100% 62%;
+    --destructive-foreground: 0 0% 94%;
+
+    --border: 0 0% 35%;
+    --input: 0 0% 24%;
+    --ring: 84 100% 54%;
+ 
     --radius: 0.5rem;
   }
  
   .dark {
-    --background-color: #212529;    /* 다크 모드 배경 */
-    --text-color: #f8f9fa;          /* 다크 모드 텍스트 */
-    
-    /* shadcn 변수 */
-    --border: 215 27.9% 16.9%;
-    --input: 215 27.9% 16.9%;
-    --ring: 216 12.2% 83.9%;
-    --background: 224 71.4% 4.1%;
-    --foreground: 210 20% 98%;
-    --primary: 210 20% 98%;
-    --primary-foreground: 220.9 39.3% 11%;
-    --secondary: 215 27.9% 16.9%;
-    --secondary-foreground: 210 20% 98%;
-    --muted: 215 27.9% 16.9%;
-    --muted-foreground: 217.9 10.6% 64.9%;
-    --accent: 215 27.9% 16.9%;
-    --accent-foreground: 210 20% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 20% 98%;
-    --card: 224 71.4% 4.1%;
-    --card-foreground: 210 20% 98%;
-    --popover: 224 71.4% 4.1%;
-    --popover-foreground: 210 20% 98%;
+    --background: 0 0% 9%;
+    --foreground: 0 0% 94%;
+ 
+    --card: 0 0% 15%;
+    --card-foreground: 0 0% 94%;
+ 
+    --popover: 0 0% 15%;
+    --popover-foreground: 0 0% 94%;
+ 
+    --primary: 78 100% 60%;
+    --primary-foreground: 0 0% 9%;
+ 
+    --secondary: 0 0% 20%;
+    --secondary-foreground: 69 100% 73%;
+ 
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 69%;
+ 
+    --accent: 84 100% 54%;
+    --accent-foreground: 0 0% 9%;
+ 
+    --destructive: 347 100% 62%;
+    --destructive-foreground: 0 0% 94%;
+ 
+    --border: 0 0% 26%;
+    --input: 0 0% 20%;
+    --ring: 84 100% 54%;
   }
 }
 

@@ -178,7 +178,7 @@ const LogTable: React.FC<LogTableProps> = ({
                 paginatedLogs.map(log => (
                   <TableRow 
                     key={log.id} 
-                    className={log.id === newLogId ? "bg-blue-100/20 transition-colors" : ""}
+                    className={log.id === newLogId ? "bg-primary/20 transition-colors" : ""}
                   >
                     <TableCell>{formatDate(log.captured_at)}</TableCell>
                     <TableCell>{log.container_owner}</TableCell>
