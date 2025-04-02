@@ -208,8 +208,61 @@ async def process_video_stream(video_source, websocket: WebSocket):
   * 비디오 업로드 UI 인터페이스
   * 컨테이너 감지 및 추적 로직
   * 최적 시점 캡처 기능
+  * Python 가상환경 설정 및 패키지 관리
 
 * **구현 예정:**
   * 실시간 WebSocket 스트리밍 기능
   * RTSP/RTMP 스트림 지원
-  * 캡처된 이미지에서 컨테이너 번호 인식 
+  * 캡처된 이미지에서 컨테이너 번호 인식
+
+## 9. 환경 설정 및 종속성
+
+### 9.1. Python 환경
+
+* **가상환경 설정:**
+  ```bash
+  python3 -m venv venv
+  source venv/bin/activate  # macOS/Linux
+  # or
+  .\venv\Scripts\activate  # Windows
+  ```
+
+* **필수 패키지:**
+  ```bash
+  pip install ultralytics opencv-python numpy pydantic pillow
+  ```
+
+* **지원되는 Python 버전:**
+  * Python 3.8 이상 (Python 3.13에서 테스트됨)
+
+### 9.2. 시스템 요구사항
+
+* **저장소 구조:**
+  * `uploads/videos` - 업로드된 동영상 저장 디렉토리
+  * `uploads/images` - 감지된 컨테이너 이미지 저장 디렉토리
+  * `public/models` - YOLOv8 모델 파일 저장 디렉토리
+
+* **권한 설정:**
+  * uploads 디렉토리에 대한 쓰기 권한 필요 (권장: `chmod -R 777 uploads`)
+
+## 10. 알려진 이슈 및 해결책
+
+### 10.1. 업로드 기능 문제
+
+* **문제:** 비디오 업로드 버튼 클릭 시 작동하지 않는 이슈
+* **원인:** 
+  * Python 실행 환경 미설정
+  * 필요한 Python 패키지 미설치
+  * 디렉토리 권한 문제
+* **해결책:**
+  * Python 가상환경 설정 및 필요 패키지 설치
+  * API 코드 수정: `python` 대신 `python3` 명령어 사용
+  * API 코드 수정: 가상환경 활성화 명령 추가 (`source venv/bin/activate && python3`)
+  * uploads 디렉토리에 대한 권한 설정 (`chmod -R 777 uploads`)
+
+### 10.2. 디버깅 팁
+
+* 브라우저 콘솔에서 업로드 진행 상태 확인 가능
+* 서버 로그에서 Python 스크립트 실행 상태 확인 가능
+* `uploads/videos` 디렉토리에 파일이 저장되었는지 확인
+* Python 스크립트 실행 로그: `uploads/images/{비디오파일명}_log.json` 

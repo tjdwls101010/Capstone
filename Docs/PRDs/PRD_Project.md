@@ -1,5 +1,5 @@
 # 주차장 컨테이너 자동 감지 및 기록 시스템 요구사항 명세서
-> **최종 수정일:** 2023-04-01
+> **최종 수정일:** 2023-04-02
 
 ## 1. 개요 (Overview)
 
@@ -168,7 +168,7 @@
 
 ## 10. 구현 현황 및 문서화 상태
 
-> **최종 업데이트:** 2023-04-01
+> **최종 수정일:** 2023-04-02
 
 ### 10.1. 세부 PRD 문서 작성 완료
 
@@ -182,31 +182,52 @@
 
 ### 10.2. 디렉토리 구조
 
-프로젝트의 디렉토리 구조는 다음과 같이 구성됩니다:
+프로젝트의 디렉토리 구조는 현재 Next.js App Router를 기반으로 다음과 같이 구성되어 있습니다:
 
 ```
 /
-├── backend/
-│   ├── app/
-│   │   ├── main.py               # FastAPI 애플리케이션 진입점
-│   │   ├── models/               # Pydantic 모델 및 데이터 구조
-│   │   ├── services/             # 비즈니스 로직 (비디오 처리, OCR 등)
-│   │   ├── routers/              # API 엔드포인트 및 WebSocket 핸들러
-│   │   └── utils/                # 유틸리티 함수들
-│   ├── tests/                    # 백엔드 테스트
-│   └── requirements.txt          # 백엔드 의존성
+├── app/
+│   ├── api/
+│   │   └── video/
+│   │       ├── route.ts          # 비디오 업로드 및 처리 API 엔드포인트
+│   │       └── process_video.py  # 컨테이너 감지 및 추적 로직 구현
+│   ├── video/
+│   │   └── page.tsx              # 비디오 처리 대시보드 페이지
+│   ├── about/
+│   │   └── page.tsx              # 프로젝트 개요 페이지
+│   ├── page.tsx                  # 메인 랜딩 페이지
+│   └── layout.tsx                # 레이아웃 구성
 │
-├── frontend/
-│   ├── pages/                    # Next.js 페이지
-│   ├── components/               # React 컴포넌트
-│   ├── styles/                   # CSS 스타일
-│   ├── public/                   # 정적 자산
-│   └── package.json              # 프론트엔드 의존성
+├── components/
+│   ├── ui/                       # 기본 UI 컴포넌트
+│   │   ├── button.tsx            # 버튼 컴포넌트
+│   │   ├── card.tsx              # 카드 컴포넌트
+│   │   ├── shape-landing-hero.tsx # 랜딩 페이지 히어로 컴포넌트
+│   │   └── shape-landing-demo.tsx # 히어로 컴포넌트 데모 래퍼
+│   ├── dashboard/                # 대시보드 관련 컴포넌트
+│   │   ├── Dashboard/            # 메인 대시보드 컴포넌트
+│   │   ├── LogTable/             # 로그 테이블 컴포넌트
+│   │   ├── StatusIndicator/      # 상태 표시 컴포넌트
+│   │   ├── VideoPlayer/          # 비디오 플레이어 컴포넌트
+│   │   └── VideoUpload/          # 비디오 업로드 컴포넌트
+│   ├── Navbar.tsx                # 네비게이션 바 컴포넌트
+│   └── common/                   # 공통 컴포넌트
 │
-├── models/
-│   └── WandaVisionYOLO.pt        # YOLOv8 모델 파일
+├── public/
+│   ├── images/                   # 이미지 파일
+│   └── models/
+│       └── WandaVisionYOLO.pt    # YOLOv8 모델 파일
 │
-└── docs/
+├── uploads/
+│   ├── videos/                   # 업로드된 비디오 저장 디렉토리
+│   └── images/                   # 감지된 컨테이너 이미지 저장 디렉토리
+│
+├── lib/
+│   └── utils.ts                  # 유틸리티 함수
+│
+├── venv/                         # Python 가상환경
+│
+└── Docs/
     └── PRDs/                     # 요구사항 명세서
         ├── PRD_Project.md         # 프로젝트 전체 PRD
         ├── PRD_VideoProcessing.md # 비디오 처리 세부 PRD
@@ -216,10 +237,26 @@
         └── PRD_UserInterface.md   # UI/UX 세부 PRD
 ```
 
-### 10.3. 다음 단계 작업
+### 10.3. 구현 현황
 
-* 백엔드 (FastAPI) 구현
-* 프론트엔드 (Next.js) 구현
-* 데이터베이스 (Supabase) 설정
-* 비디오 처리 및 WebSocket 통신 구현
-* 테스트 및 최적화
+* **구현 완료:**
+  * Next.js 애플리케이션 기본 구조 설정
+  * 메인 랜딩 페이지 구현 (HeroGeometric 컴포넌트)
+  * 대시보드 UI 레이아웃 구현 (실시간 영상 / 비디오 업로드 탭)
+  * 비디오 업로드 컴포넌트 구현 (드래그 앤 드롭 + 파일 선택)
+  * 비디오 처리 API 엔드포인트 구현
+  * Python 객체 감지 및 컨테이너 추적 로직 구현
+  * 가상환경 설정 및 필요한 Python 패키지 설치
+  * 업로드 디렉토리 구조 설정
+  * 네비게이션 바 구현
+
+* **진행 중:**
+  * WebSocket을 통한 실시간 비디오 스트리밍
+  * 컨테이너 번호 인식 기능 구현
+  * 로그 테이블 연동
+
+* **다음 단계:**
+  * Supabase 데이터베이스 연동
+  * 실시간 로그 업데이트 구현
+  * 컨테이너 번호 인식 결과 표시
+  * 시스템 최적화 및 성능 개선
